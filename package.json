@@ -14,7 +14,7 @@
     "graphql"
   ],
   "dependencies": {
-    "apollo-client": "*",
+    "apollo-client": "*"
   },
   "peerDependencies": {
     "xstream": "*",
@@ -22,7 +22,7 @@
   },
   "contributors": [
     "Giovanni T. Parra",
-    "Will Mruzek",
+    "Will Mruzek"
   ],
   "license": "MIT"
 }
