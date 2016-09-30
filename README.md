@@ -22,4 +22,5 @@ npm install --save cycle-graphql-most-driver
 ### Roadmap
 
 * Add TypeScript typings
-* Make diversity compliant
+* Make diversity compliant (currently uses xstream exclusively)
+* Use docs
