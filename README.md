@@ -11,10 +11,6 @@ It uses [Apollo Client](http://docs.apollostack.com/apollo-client/core.html) und
 
 ### Install
 
-```
-npm install --save cycle-graphql-most-driver
-```
-
 
 ### Use
 
