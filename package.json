@@ -1,0 +1,28 @@
+{
+  "name": "cycle-apollo-driver",
+  "version": "0.0.0",
+  "description": "A simple, Apollo-based, GraphQL driver for CycleJS",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cycle",
+    "cyclejs",
+    "apollo",
+    "driver",
+    "graphql"
+  ],
+  "dependencies": {
+    "apollo-client": "*",
+  },
+  "peerDependencies": {
+    "xstream": "*",
+    "graphql-tag": "^0.1.13"
+  },
+  "contributors": [
+    "Giovanni T. Parra",
+    "Will Mruzek",
+  ]
+  "license": "MIT"
+}
