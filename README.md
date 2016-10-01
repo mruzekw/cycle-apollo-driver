@@ -11,12 +11,80 @@ It uses [Apollo Client](http://docs.apollostack.com/apollo-client/core.html) und
 
 ### Install
 
+```
+npm install --save cycle-apollo-driver
+```
+
 
 ### Use
+
+```javascript
+function app({GraphQL}) {
+
+  let response$ = GraphQL
+    .compose(flattenConcurrently)
+    .map(({data}) => data);
+
+  response$.addListener({
+    next: s => { console.log(s) },
+    error: err => console.error(err),
+    complete: () => {},
+  });
+
+  return {
+    GraphQL: xs.fromArray([{
+      query: 'fetchPost',
+      variables: {
+        id: 'randomid'
+      }
+    }, {
+      mutation: 'createPost',
+      variables: {
+        imageUrl: 'an item',
+        desc: 'this is an item'
+      }
+    }])
+  };
+
+}
+
+const GraphQLConfig = {
+  endpoint: 'https://api.graph.cool/simple/v1/citfkupnt0oxk0134czs10yid',
+  templates: {
+    fetchPost: gql`
+query fetchPost($id: ID!) {
+  Post(id: $id) {
+    imageUrl
+    description
+  }
+}
+    `,
+    fetchAll: gql`
+query {
+  allPosts {
+    imageUrl
+    description
+  }
+}
+    `,
+    createPost: gql`
+mutation createPost($imageUrl: String!, $desc: String!) {
+  createPost(imageUrl: $imageUrl, description: $desc) {
+    imageUrl
+    description
+  }
+}
+    `
+  }
+};
+
+Cycle.run(app, {
+  GraphQL: makeGraphQLDriver(GraphQLConfig)
+});
+```
 
 
 ### Roadmap
 
 * Add TypeScript typings
 * Make diversity compliant (currently uses xstream exclusively)
-* Use docs
